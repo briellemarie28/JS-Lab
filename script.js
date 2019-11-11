@@ -4,9 +4,8 @@
  *
  */
 
-//let question = prompt("Do you want to play the game?");
-//prompt("What is your name");
-
+let question = prompt("Do you want to play the game?");
+prompt("What is your name");
 
 var grantHealth = 10;
 var userHealth = 40;
@@ -14,28 +13,36 @@ var grantDeath = 0;
 let randomNumber = Math.floor(Math.random() * 2) + 1;
 
 while (userHealth >=0 && grantDeath < 3) {
-    var randomGrant = grantHealth-randomNumber;
-    var randomUser = userHealth-randomNumber;
-console.log ("Adam has", randomUser, "health points left");
-console.log("Grant the mighty chicken has", randomGrant, "health points left");
+    grantHealth = grantHealth-(Math.floor(Math.random() * 2) + 1);
+    userHealth = userHealth-(Math.floor(Math.random() * 2) + 1);
 
-//???????how to reduce by random number
- grantHealth--;
- userHealth--;
-}    
+console.log ("Adam has", userHealth, "health points left");
+console.log("Grant the mighty chicken has", grantHealth, "health points left");
 
-//this doesn't work
-if (grantHealth === 0 && grantDeath < 3) {
+if (grantHealth <= 0) {
 console.log (grantDeath);
 console.log ("Adam has won, Grant receives 10 health points");
-console.log("Grant the might chicken has", randomGrant, "health points left")
- grantDeath --;
- grantHealth = 10;
+console.log("Grant the might chicken has", grantHealth, "health points left")
 
-} else {grantHealth === 0 && grantDeath === 0
-console.log ("Adam is the winner!");
+ grantDeath ++;
+ grantHealth = 10;
 }
-//log winner
+}    
+ 
+//determine winner
+if (grantDeath ===3) {
+  console.log("Adam is the winner");
+}
+else if (userHealth <=0) {
+console.log ("The user has been defeated!");
+}
+
+
+
+
+
+
+
 
 
 
